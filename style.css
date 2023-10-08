@@ -1,0 +1,422 @@
+@font-face {
+  font-family: Futura;
+  src: url(./Fonts/Futura-Bold.ttf);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Futura;
+  &::selection {
+    color: white;
+    background-color: black;
+  }
+}
+
+/* Set full height and width for HTML and body */
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  background-color: #222222;
+}
+
+
+.button {
+  position: relative;
+  font-size: 1vw;
+  font-weight: 600;
+  height: 52px;
+  width: 100%;
+  max-width: 180px;
+  margin: auto;
+  background: white;
+  color: white;
+  letter-spacing: -0.5px;
+  border-radius: 50px;
+  text-align: center;
+  overflow: hidden;
+  line-height: 52px;
+  transition-delay: 0.6s;
+
+  &::before {
+    content: "Start a project";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #222222;
+    border-radius: 50% 50% 0 0;
+    transform: translateY(100%) scaleY(0.5);
+    transition: all ease 0.6s;
+  }
+
+  &::after {
+    content: "Start a project";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    color: black;
+    border-radius: 0;
+    transform: translateY(0) scaleY(1);
+    transition: all ease 0.6s;
+  }
+
+  &:hover {
+    background: black;
+    transition: background 0.2s linear;
+    transition-delay: 0.6s;
+
+    &::before {
+      border-radius: 0;
+      transform: translateY(0) scaleY(1);
+      transition-delay: 0s;
+    }
+
+    &::after {
+      border-radius: 0 0 50% 50%;
+      transform: translateY(-100%) scaleY(0.5);
+      transition-delay: 0s;
+    }
+  }
+}
+
+
+
+.page1 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  max-width: 1800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #222222; */
+  background-color: #141414;
+
+  & .boxImgs {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .imgs {
+      position: relative;
+      height: 550px;
+      width: 75%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      & .viewport {
+        position: relative;
+        height: 120vh;
+        width: 120vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        opacity: 0;
+        transition: all 0.2s ease ;
+
+        & .card {
+          position: relative;
+          width: 260px;
+          height: 325px;
+          margin: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          filter: brightness(70%) grayscale(100%);
+          transition: all 0.6s ease-out;
+          opacity: 0.5;
+          
+          &:hover {
+            filter: brightness(100%) grayscale(0%);
+            opacity: 1;
+          }
+
+          & img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
+        & .landscape {
+          width: 406px;
+        }
+
+        & .top {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform-origin: 50% 100%;
+        }
+        & .middle {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform-origin: 50% 50%;
+        }
+        & .bottom {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform-origin: 50% 0%;
+        }
+      }
+    }
+  }
+
+  & .boxText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    color: white;
+    overflow: hidden;
+
+    & h1 {
+      font-size: 6.5vw;
+      line-height: 1;
+      text-align: center;
+      pointer-events: none;
+      transform: translateY(135%);
+    }
+    
+    & .h3Text {
+      display: flex;
+      font-size: 1.5vw;
+      gap: 25px;
+      transform: translateY(100%);
+    }
+  }
+}
+
+.page2 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222222;
+
+  & .page2Content {
+    position: relative;
+    height: 95vh;
+    width: 95vw;
+    margin-top: 60px;
+    border-radius: 25px;
+    background-color: #141414;
+    display: flex;
+    align-items: center;
+
+    & .description {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 50%;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      border-radius: 25px;
+
+      & h1 {
+        font-size: 10vw;
+        color: white;
+
+        & i {
+          color: white;
+        }
+      }
+    }
+
+    & .title {
+      height: 36px;
+      width: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -6%;
+      margin-left: 80px;
+      border-radius: 16px 16px 0 0;
+      color: white;
+      background-color: #141414;
+
+      & h3 {
+        font-size: 15px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: transparent;
+        top: 18px;
+        left: -18px;
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        box-shadow: 10px 10px 0 #141414;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: transparent;
+        top: 18px;
+        right: -18px;
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        box-shadow: -10px 10px 0 #141414;
+      }
+    }
+
+    & .content {
+      position: relative;
+      background-color: #141414;
+      height: 95vh;
+      display: flex;
+      align-items: center;
+      border-radius: 25px;
+      margin-left: 1250px;
+
+      & .projects {
+        display: inline-block;
+        white-space: nowrap;
+        position: relative;
+        height: 80vh;
+        width: 60vh;
+        margin: 0 10px;
+        border-radius: 25px;
+
+        & .flyingBox {
+          height: 30%;
+          width: 85%;
+          position: absolute;
+          bottom: -45%;
+          left: 50%;
+          transform: translate(-50%, 0%);
+          border-radius: 25px;
+          background-color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+
+        & img {
+          height: 101%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 25px;
+        }
+
+        & .card-tags {
+          height: 50px;
+          width: fit-content;
+          position: absolute;
+          top: -1%;
+          right: 0%;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          background-color: #141414;
+          padding: 15px 15px;
+          border-bottom-left-radius: 25px;
+
+          & h3 {
+            font-size: 12px;
+            color: white;
+            background-color: #222;
+            padding: 5px 10px;
+            border-radius: 5px;
+          }
+
+          &::before {
+            height: 25px;
+            width: 25px;
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: -25px;
+            border-radius: 50%;
+            background-color: transparent;
+            box-shadow: 12px -12px 0 #141414;
+          }
+
+          &::after {
+            height: 25px;
+            width: 25px;
+            content: "";
+            position: absolute;
+            bottom: -25px;
+            right: 0;
+            border-radius: 50%;
+            background-color: transparent;
+            box-shadow: 12px -12px 0 #141414;
+          }
+        }
+      }
+    }
+  }
+
+  & .contactButton {
+    font-size: 10px;
+    background-color: #f3efef;
+    padding: 8px 15px;
+    border-radius: 25px;
+    position: absolute;
+    bottom: -10%;
+    right: 5%;
+    transform: rotate(0deg);
+    cursor: pointer;
+    z-index: 99;
+
+    & h2 {
+      color: black;
+    }
+  }
+
+  & .contact {
+    position: absolute;
+    bottom: -79%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 80vh;
+    width: 92vw;
+    background-color: #f3efef;
+    border-radius: 55px 55px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+
+    & h1 {
+      margin-left: 100px;
+      font-size: 5vw;
+    }
+  }
+}
