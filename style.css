@@ -98,6 +98,7 @@ main {
   justify-content: center;
   /* background-color: #222222; */
   background-color: #141414;
+  overflow: hidden;
 
   & .boxImgs {
     position: relative;
@@ -214,6 +215,7 @@ main {
   align-items: center;
   justify-content: center;
   background-color: #222222;
+  overflow: hidden;
 
   & .page2Content {
     position: relative;
@@ -520,8 +522,27 @@ main {
 
   .page2 {
     & .page2Content {
+
+      & .title {
+        display: none;
+      }
+
       & .content {
         margin-left: 0;
+        & .projects {
+          height: 75vh;
+          width: 43vh;
+        }
+      }
+
+      & .contactButton {
+        font-size: 14px;
+        right: 32%;
+        padding: 12px 32px;
+      }
+
+      & .description {
+        justify-content: center;
       }
     }
 
