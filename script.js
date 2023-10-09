@@ -151,7 +151,7 @@ gsap.to(contactButton, {
         scrub: true,
         scroller: "main",
     },
-    bottom: "10%",
+    bottom: "16%",
 });
 
 // Toggle contactPage visibility
