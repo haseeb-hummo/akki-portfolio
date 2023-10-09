@@ -42,9 +42,6 @@ const content = document.querySelector(".content");
 const projects = document.querySelectorAll(".projects");
 const flyingBox = document.querySelectorAll(".flyingBox");
 const projectsImg = document.querySelectorAll(".projects img");
-const contactButton = document.querySelector(".page2 .contactButton");
-const contactPage = document.querySelector(".page2 .contact");
-let contactPageVisible = false;
 
 // Create a GSAP timeline
 const tl1 = gsap.timeline();
@@ -74,7 +71,7 @@ let cursorX = viewportCenterX;
 let cursorY = viewportCenterY;
 
 let maxX = 200;
-let maxY = 260; 
+let maxY = 260;
 
 function updateCursor() {
 
@@ -87,8 +84,8 @@ function updateCursor() {
     gsap.to(viewport, {
         x: positionX,
         y: positionY,
-        duration: 1.5, 
-        ease: "power2.InOut", 
+        duration: 1.5,
+        ease: "power2.InOut",
     });
 
     requestAnimationFrame(updateCursor);
@@ -125,6 +122,7 @@ gsap.to(content, {
     }
 });
 
+
 // Iterate through each "projects" element and add animations
 projects.forEach((project, index) => {
     const tl = gsap.timeline({ paused: true });
@@ -143,15 +141,40 @@ projects.forEach((project, index) => {
     });
 });
 
+
+
+let p3Container = document.querySelector(".page3 .wrapper .container");
+let p3Projects = gsap.utils.toArray(".page3 .wrapper .container .projects");
+
+
+gsap.to(p3Projects, {
+    x: `-${p3Container.offsetWidth}`,
+    scrollTrigger: {
+        trigger: ".page3",
+        end: `+=3000`,
+        pin: true,
+        scrub: 1,
+        scroller: "main",
+    }
+})
+
+
+
+
+const contactButton = document.querySelector(".page3 .contactButton");
+const contactPage = document.querySelector(".page3 .contact");
+let contactPageVisible = false;
+
 // Animate contactButton with ScrollTrigger
 gsap.to(contactButton, {
     scrollTrigger: {
-        trigger: ".page2",
+        trigger: ".page3",
         start: "bottom bottom",
         scrub: true,
         scroller: "main",
     },
-    bottom: "16%",
+    bottom: "10%",
+    right: "6%"
 });
 
 // Toggle contactPage visibility
@@ -167,7 +190,7 @@ contactButton.addEventListener("click", () => {
         contactButton.style.backgroundColor = "#141414";
     } else {
         gsap.to(contactPage, {
-            bottom: "-79%",
+            bottom: "-88%",
             duration: 0.3,
         });
 
@@ -177,4 +200,16 @@ contactButton.addEventListener("click", () => {
     }
 
     contactPageVisible = !contactPageVisible;
+});
+
+
+
+
+
+let icons = document.querySelector(".right .icons");
+
+let button = document.querySelector(".right .button");
+
+button.addEventListener("click", function () {
+    icons.classList.toggle("show-icons");
 });
