@@ -182,7 +182,7 @@ contactButtonp4.addEventListener("click", () => {
             duration: 0.8,
         })
             .to(p4Info, {
-                bottom: "0%",
+                bottom: "-2%",
                 duration: 0.8,
             });
 
@@ -351,10 +351,9 @@ const prevImgButton = document.getElementById("prevImg");
 const nextImgButton = document.getElementById("nextImg");
 const closeButton = document.getElementById("closeButton");
 
-console.log(closeButton);
 
 let currentImageIndex = 0;
-let projectImages; // Define the projectImages variable here
+let projectImages; // Define the projectImages variable 
 
 function showPopupImage(imageSrc) {
     popupImg.src = imageSrc;
@@ -393,14 +392,30 @@ nextImgButton.addEventListener("click", () => {
     }
 });
 
-popup.addEventListener("click", (event) => {
-    if (event.target === popup) {
-        closePopup();
-    }
-});
-
-
 
 closeButton.addEventListener("click" , () => {
     closePopup();
+});
+
+
+const iconsImg = document.querySelectorAll(".icons .img");
+
+iconsImg.forEach( icon => {
+    icon.addEventListener("click" , () => {
+        const link = icon.getAttribute("data-link");
+        if(link){
+            window.open(link , "_blank")
+        }
+    })
+});
+
+const socialImgs = document.querySelectorAll(".social .imgs .img");
+
+socialImgs.forEach( img => {
+    img.addEventListener("click" , () => {
+        const link = img.getAttribute("data-link");
+        if (link) {
+            window.open(link , "_blank")
+        }
+    })
 })
