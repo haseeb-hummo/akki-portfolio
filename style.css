@@ -793,7 +793,7 @@ main {
           }
         }
 
-        & img {
+        & video {
           height: 101%;
           width: 100%;
           object-fit: cover;
@@ -850,10 +850,6 @@ main {
             background-color: transparent;
             box-shadow: 12px -12px 0 #141414;
           }
-        }
-
-        &:nth-child(2) {
-          background-color: purple;
         }
       }
     }

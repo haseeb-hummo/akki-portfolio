@@ -336,7 +336,7 @@ const projectImgs = [
         id: 17,
         image: [
             "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d4511f125864085.61222647ced57.png",
-        ],
+        ]
     },
 ];
 
@@ -418,4 +418,19 @@ socialImgs.forEach( img => {
             window.open(link , "_blank")
         }
     })
+})
+
+
+const video = document.querySelector(".projects video");
+
+function playAndReset() {
+    video.play();
+}
+
+video.addEventListener("mouseenter" , playAndReset)
+video.addEventListener("mouseleave" , () => {
+    setTimeout( () => {
+        video.currentTime = 0;
+    } , 2500)
+    video.pause();
 })
